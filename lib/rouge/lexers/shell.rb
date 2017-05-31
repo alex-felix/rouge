@@ -30,6 +30,8 @@ module Rouge
         shopt source suspend test time times trap true type typeset
         ulimit umask unalias unset wait
 
+        rails git hub ruby gem brew apt-get sqlite3
+
         ls tar cat grep sudo
       ).join('|')
 
