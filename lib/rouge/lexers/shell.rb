@@ -38,10 +38,10 @@ module Rouge
       state :basic do
         rule /#.*$/, Comment
 
-        rule /\b(#{KEYWORDS})\s*\b/, Keyword
+        rule(/\b(#{KEYWORDS})\b/, Keyword)
         rule /\bcase\b/, Keyword, :case
 
-        rule /\b(#{BUILTINS})\b/, Name::Builtin
+        rule(/\b(#{BUILTINS})\b/, Name::Builtin)
         rule /[.](?=\s)/, Name::Builtin
 
         rule /(\b\w+)(=)/ do |m|
