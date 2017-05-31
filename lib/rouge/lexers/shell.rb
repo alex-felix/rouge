@@ -30,18 +30,19 @@ module Rouge
         shopt source suspend test time times trap true type typeset
         ulimit umask unalias unset wait
 
-        rails git hub ruby gem brew apt-get sqlite3
+        rails git hub ruby gem brew apt-get sqlite3 rake
 
         ls tar cat grep sudo
       ).join('|')
 
+
       state :basic do
         rule /#.*$/, Comment
 
-        rule(/\b(#{KEYWORDS})\b/, Keyword)
+        rule /\b(#{KEYWORDS})\s*\b/, Keyword
         rule /\bcase\b/, Keyword, :case
 
-        rule(/\b(#{BUILTINS})\b/, Name::Builtin)
+        rule /\b(#{BUILTINS})\s*\b(?!.)/, Name::Builtin
         rule /[.](?=\s)/, Name::Builtin
 
         rule /(\b\w+)(=)/ do |m|
